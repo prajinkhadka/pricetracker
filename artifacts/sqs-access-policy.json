@@ -1,0 +1,19 @@
+{
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "sns.amazonaws.com"
+      },
+      "Action": "sqs:SendMessage",
+      "Resource": "arn:aws:sqs:us-west-1:377578419284:projectQueue",
+      "Condition": {
+        "ArnEquals": {
+          "aws:SourceArn": "arn:aws:sns:us-west-1:377578419284:projectTopic.fifo"
+        }
+      }
+    }
+  ]
+}
+
+
